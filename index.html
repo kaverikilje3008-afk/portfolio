@@ -8,6 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+  nav{
+background:#111827;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:600;
+}
+
+nav a:hover{
+color:#60a5fa;
+}
 *{
 margin:0;
 padding:0;
@@ -68,12 +86,6 @@ font-size:2rem;
 margin-bottom:30px;
 color:#2563eb;
 }
-<nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
 
 .about{
 text-align:center;
@@ -126,9 +138,17 @@ padding:20px;
 </style>
 </head>
 <body>
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 
 <header>
 <img src="kaveri.jpg.jpeg" alt="Profile" class="profile-img">
+<h1>kaveri kilje</h1>
 
 <p>B.Sc. IT Student | Web Developer | Graphic designer</p> 
 <p> I am Passionate about Web Development, Data Science, and creating modern web applications. </p>
@@ -137,7 +157,7 @@ padding:20px;
 <a href="#contact" class="btn">Contact Me</a>
 </header>
 
-<section>
+<section id="about">
 <h2 class="section-title">About Me</h2>
 
 <div class="about">
@@ -149,7 +169,7 @@ new skills to improve my technical knowledge.
 </div>
 </section>
 
-<section>
+<section id="skills">
 <h2 class="section-title">Skills</h2>
 
 <div class="skills">
@@ -165,7 +185,7 @@ new skills to improve my technical knowledge.
 </div>
 </section>
 
-<section>
+<section id="projects">
 <h2 class="section-title">Projects</h2>
 
 <div class="projects">
@@ -191,25 +211,23 @@ new skills to improve my technical knowledge.
 <section>
 <h2 class="section-title">Education</h2>
 
-<div class="card">
-<h3>SSC </h3>
-<p>Holy cross convent high school</p>
-<p>66.70% (2020-2021)</p>
-</div>
-
-</section>
-<div class="card">
-<h3>HSC (PCM|EM)</h3>
-<p>Sharadaashram vidyamandir,school & jr college</p>
-<p>55.27% (2021-2023)</p>
-</div>
-
 <section>
-<div class="card">
+<h2 class="section-title">Education</h2><div class="card">
+<h3>SSC</h3>
+<p>Holy Cross Convent High School</p>
+<p>66.70% (2020-2021)</p>
+</div><div class="card">
+<h3>HSC (PCM | EM)</h3>
+<p>Sharadashram Vidyamandir School & Jr. College</p>
+<p>55.27% (2021-2023)</p>
+</div><div class="card">
 <h3>B.Sc. Information Technology</h3>
 <p>Kirti M. Doongursee College</p>
 <p>Third Year (TYBSc IT)</p>
 </div>
+</section>
+
+
 
 <section>
 <h2 class="section-title">Achievements</h2>
@@ -245,7 +263,7 @@ new skills to improve my technical knowledge.
 </section>
 
 <footer>
-</p>© 2026 Kaveri Kilje | All Rights Reserved</p>
+<p>© 2026 Kaveri Kilje | All Rights Reserved</p>
 </footer>
 
 </body>
