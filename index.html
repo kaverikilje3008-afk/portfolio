@@ -104,12 +104,13 @@ box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 
 .projects-container{
-display:grid;
-grid-template-columns:1fr;
+display:flex;
+flex-direction:column;
 gap:20px;
+align-items:center;
 }
   
-  .project-card{
+  .card{
     width:100%;
     max-width:700px;
     margin:0 auto:
@@ -220,7 +221,7 @@ new skills to improve my technical knowledge.
 <section id="projects">
 <h2 class="section-title">Projects</h2>
 
-<div class="projects">
+<div class="projects-container">
 
 <div class="card">
   <h3>Personal Portfolio Website</h3>
@@ -244,7 +245,8 @@ The website is fully responsive and designed to create a professional online pre
          It hepls patients  book appoointment online and access their reports easily.
     </p> 
 </div>
- 
+</div></section>
+   
 <section>
 <h2 class="section-title">Education</h2>
   
@@ -266,8 +268,6 @@ The website is fully responsive and designed to create a professional online pre
 
 <section>
 <h2 class="section-title">Achievements</h2>
-
-<div class="projects">
 
 <div class="card">
 <h3>NSS Volunteer</h3>
