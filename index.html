@@ -8,6 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 :root {
@@ -63,6 +64,12 @@ section {
     color: var(--green);
 }
 
+.section-title i {
+    color: var(--green);
+    font-size: .75em;
+    margin-right: 8px;
+}
+
 .section-subtitle {
     color: var(--muted);
     margin-bottom: 38px;
@@ -107,6 +114,11 @@ nav {
     font-family: "Space Grotesk", sans-serif;
     font-size: 27px;
     font-weight: 700;
+    transition: transform .3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-3px);
 }
 
 .logo span {
@@ -123,11 +135,27 @@ nav {
 .nav-links a {
     color: var(--muted);
     font-size: 15px;
-    transition: 0.3s;
+    transition: .3s;
+    position: relative;
 }
 
 .nav-links a:hover {
     color: var(--green);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: var(--green);
+    transition: width .3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .menu-button {
@@ -138,6 +166,7 @@ nav {
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 /* HERO */
@@ -165,6 +194,11 @@ nav {
     border-radius: 30px;
     font-size: 13px;
     margin-bottom: 22px;
+    box-shadow: 0 0 25px rgba(66,245,161,.12);
+}
+
+.tag i {
+    margin-right: 7px;
 }
 
 .hero h1 {
@@ -176,6 +210,7 @@ nav {
 
 .hero h1 span {
     color: var(--green);
+    text-shadow: 0 0 25px rgba(66,245,161,.2);
 }
 
 .hero h2 {
@@ -198,12 +233,15 @@ nav {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
     padding: 12px 22px;
     border-radius: 9px;
     font-weight: 700;
     font-size: 14px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .btn-primary {
@@ -217,8 +255,8 @@ nav {
 }
 
 .btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(66,245,161,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(66,245,161,0.2);
 }
 
 .profile-wrap {
@@ -235,6 +273,17 @@ nav {
     border: 3px solid var(--green);
     box-shadow: 0 0 45px rgba(66,245,161,0.25);
     animation: float 4s ease-in-out infinite;
+    position: relative;
+}
+
+.profile-image::before {
+    content: "";
+    position: absolute;
+    inset: -13px;
+    border: 1px dashed var(--green);
+    border-radius: 50%;
+    opacity: .55;
+    animation: rotateBorder 20s linear infinite;
 }
 
 .profile-image img {
@@ -249,6 +298,10 @@ nav {
     50% { transform: translateY(-13px); }
 }
 
+@keyframes rotateBorder {
+    to { transform: rotate(360deg); }
+}
+
 /* ABOUT */
 
 .about-box {
@@ -256,6 +309,12 @@ nav {
     border: 1px solid var(--border);
     padding: 35px;
     border-radius: 18px;
+    transition: .3s;
+}
+
+.about-box:hover {
+    border-color: rgba(66,245,161,.5);
+    transform: translateY(-3px);
 }
 
 .about-box p {
@@ -277,12 +336,32 @@ nav {
     padding: 23px 15px;
     text-align: center;
     border-radius: 13px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .skill:hover {
     border-color: var(--green);
-    transform: translateY(-6px);
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.2);
+}
+
+.skill-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 13px;
+    border: 1px solid rgba(66,245,161,.25);
+    border-radius: 14px;
+    color: var(--green);
+    background: rgba(66,245,161,.08);
+    font-size: 22px;
+    transition: .3s;
+}
+
+.skill:hover .skill-icon {
+    transform: translateY(-4px) rotate(-5deg);
+    background: rgba(66,245,161,.18);
 }
 
 .skill h3 {
@@ -299,30 +378,71 @@ nav {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
 }
 
 .project-card {
+    min-width: 0;
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 17px;
     overflow: hidden;
-    transition: 0.35s;
+    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
 
 .project-card:hover {
     transform: translateY(-7px);
     border-color: var(--green);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
-.project-card img {
+/* FIXED PROJECT IMAGE AREA */
+
+.project-image {
     width: 100%;
-    height: 230px;
-    object-fit: cover;
+    height: 260px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #091522;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-image img {
     display: block;
-    background: #18283b;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform .5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.035);
+}
+
+/* Missing image fallback */
+
+.image-fallback {
+    display: none;
+    width: 100%;
+    height: 100%;
+    color: var(--green);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.image-fallback i {
+    font-size: 42px;
 }
 
 .project-content {
@@ -330,9 +450,17 @@ nav {
 }
 
 .project-content h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: "Space Grotesk", sans-serif;
     font-size: 21px;
     margin-bottom: 10px;
+}
+
+.project-content h3 i {
+    color: var(--green);
+    font-size: 18px;
 }
 
 .project-content p {
@@ -354,12 +482,27 @@ nav {
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 11px;
+    transition: .25s;
+}
+
+.project-tags span:hover {
+    transform: translateY(-3px);
+    background: rgba(66,245,161,.18);
 }
 
 .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--green);
     font-size: 14px;
     font-weight: 700;
+    transition: .3s;
+}
+
+.project-link:hover {
+    gap: 14px;
+    color: var(--blue);
 }
 
 /* EXPERIENCE */
@@ -377,6 +520,12 @@ nav {
     border-radius: 14px;
     padding: 24px;
     position: relative;
+    transition: .3s;
+}
+
+.timeline-card:hover {
+    transform: translateX(6px);
+    border-color: var(--green);
 }
 
 .timeline-card::before {
@@ -400,7 +549,7 @@ nav {
     margin-top: 6px;
 }
 
-/* EDUCATION TIMELINE */
+/* EDUCATION */
 
 .education-timeline {
     max-width: 850px;
@@ -438,7 +587,7 @@ nav {
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 25px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .education-card:hover {
@@ -481,6 +630,8 @@ nav {
     border: 1px solid rgba(66,245,161,0.25);
     padding: 50px 25px;
     border-radius: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
 .contact-box p {
@@ -506,17 +657,28 @@ footer {
     font-size: 13px;
 }
 
+footer i {
+    color: var(--green);
+}
+
 /* SCROLL ANIMATION */
 
 .reveal {
     opacity: 0;
     transform: translateY(25px);
-    transition: 0.7s ease;
+    transition: opacity .7s ease, transform .7s ease;
 }
 
 .reveal.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ACCESSIBILITY */
+
+:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
 }
 
 /* RESPONSIVE */
@@ -586,8 +748,32 @@ footer {
         padding: 23px;
     }
 
-    .project-card img {
-        height: 200px;
+    .project-image {
+        height: 230px;
+    }
+
+    .project-content {
+        padding: 21px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
 </style>
@@ -603,7 +789,10 @@ footer {
             <a href="#home" class="logo">Kaveri<span>.</span></a>
 
             <button class="menu-button" id="menuButton"
-                    aria-label="Open navigation menu">☰</button>
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
@@ -624,7 +813,10 @@ footer {
     <div class="container hero-grid">
 
         <div class="hero-content reveal">
-            <span class="tag">Welcome to my portfolio</span>
+            <span class="tag">
+                <i class="fa-solid fa-sparkles"></i>
+                Welcome to my portfolio
+            </span>
 
             <h1>Hi, I'm <span>Kaveri Kilje</span></h1>
 
@@ -639,10 +831,12 @@ footer {
 
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
+                    <i class="fa-solid fa-folder-open"></i>
                     Explore My Projects
                 </a>
 
                 <a href="#contact" class="btn btn-outline">
+                    <i class="fa-solid fa-paper-plane"></i>
                     Contact Me
                 </a>
             </div>
@@ -663,7 +857,11 @@ footer {
 <section id="about">
     <div class="container reveal">
 
-        <h2 class="section-title">About <span>Me</span></h2>
+        <h2 class="section-title">
+            <i class="fa-solid fa-user"></i>
+            About <span>Me</span>
+        </h2>
+
         <p class="section-subtitle">A little introduction about me</p>
 
         <div class="about-box">
@@ -693,47 +891,59 @@ footer {
 <section id="skills">
     <div class="container reveal">
 
-        <h2 class="section-title">My <span>Skills</span></h2>
+        <h2 class="section-title">
+            <i class="fa-solid fa-code"></i>
+            My <span>Skills</span>
+        </h2>
+
         <p class="section-subtitle">Technologies and tools I work with</p>
 
         <div class="skills-grid">
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
                 <h3>Python</h3>
                 <p>Programming</p>
             </div>
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
                 <h3>SQL</h3>
                 <p>Database Basics</p>
             </div>
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-solid fa-table"></i></div>
                 <h3>Pandas</h3>
                 <p>Data Analysis</p>
             </div>
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-solid fa-chart-column"></i></div>
                 <h3>Streamlit</h3>
                 <p>Dashboard Development</p>
             </div>
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
                 <h3>HTML</h3>
                 <p>Web Structure</p>
             </div>
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
                 <h3>CSS</h3>
                 <p>Web Designing</p>
             </div>
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
                 <h3>JavaScript</h3>
                 <p>Web Development</p>
             </div>
 
             <div class="skill">
+                <div class="skill-icon"><i class="fa-solid fa-chart-pie"></i></div>
                 <h3>Data Visualization</h3>
                 <p>Charts and Insights</p>
             </div>
@@ -747,7 +957,11 @@ footer {
 <section id="projects">
     <div class="container reveal">
 
-        <h2 class="section-title">My <span>Projects</span></h2>
+        <h2 class="section-title">
+            <i class="fa-solid fa-laptop-code"></i>
+            My <span>Projects</span>
+        </h2>
+
         <p class="section-subtitle">
             Some of the practical projects I have worked on
         </p>
@@ -758,11 +972,21 @@ footer {
 
             <article class="project-card">
 
-                <img src="Dashboard.png"
-                     alt="Student Transportation Dashboard">
+                <div class="project-image">
+                    <img src="Dashboard.png"
+                         alt="Student Transportation Dashboard"
+                         loading="lazy">
+                    <div class="image-fallback">
+                        <i class="fa-solid fa-bus"></i>
+                        <span>Student Transportation Dashboard</span>
+                    </div>
+                </div>
 
                 <div class="project-content">
-                    <h3>Student Transportation Preference Analysis</h3>
+                    <h3>
+                        <i class="fa-solid fa-bus"></i>
+                        Student Transportation Preference Analysis
+                    </h3>
 
                     <p>
                         An interactive dashboard that analyzes students'
@@ -780,7 +1004,7 @@ footer {
                     <a class="project-link"
                        href="https://student-transport-preference-analysis-a4ie2gwqkpne3l9hnibjlk.streamlit.app/"
                        target="_blank" rel="noopener">
-                        View Live Dashboard ↗
+                        View Live Dashboard <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </article>
@@ -789,11 +1013,21 @@ footer {
 
             <article class="project-card">
 
-                <img src="DP daignostic.png"
-                     alt="D P Diagnostics project">
+                <div class="project-image">
+                    <img src="DP daignostic.png"
+                         alt="D P Diagnostics project"
+                         loading="lazy">
+                    <div class="image-fallback">
+                        <i class="fa-solid fa-house-medical"></i>
+                        <span>D P Diagnostics Website</span>
+                    </div>
+                </div>
 
                 <div class="project-content">
-                    <h3>D P Diagnostics</h3>
+                    <h3>
+                        <i class="fa-solid fa-house-medical"></i>
+                        D P Diagnostics
+                    </h3>
 
                     <p>
                         A website project designed to present diagnostic
@@ -809,9 +1043,9 @@ footer {
                     </div>
 
                     <a class="project-link"
-                        href="https://kaverikilje3020-hub.github.io/D-P-Diagnostics/"
-                        target="_blank" rel="noopener">
-                        Visit Live Website ↗
+                       href="https://kaverikilje3020-hub.github.io/D-P-Diagnostics/"
+                       target="_blank" rel="noopener">
+                        Visit Live Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </article>
@@ -820,11 +1054,21 @@ footer {
 
             <article class="project-card">
 
-                <img src="smart-garbage-bin.png"
-                     alt="Smart Garbage Bin project">
+                <div class="project-image">
+                    <img src="smart-garbage-bin.png"
+                         alt="Smart Garbage Bin project"
+                         loading="lazy">
+                    <div class="image-fallback">
+                        <i class="fa-solid fa-recycle"></i>
+                        <span>Smart Garbage Bin Project</span>
+                    </div>
+                </div>
 
                 <div class="project-content">
-                    <h3>Smart Garbage Bin</h3>
+                    <h3>
+                        <i class="fa-solid fa-recycle"></i>
+                        Smart Garbage Bin
+                    </h3>
 
                     <p>
                         A smart waste-management project focused on improving
@@ -838,10 +1082,10 @@ footer {
                         <span>Project Development</span>
                     </div>
 
-                    <a class="project-link" href="https://www.tinkercad.com/things/5Vj3kfo5iZP-smart-garbage-collection/editel?returnTo=https%3A%2F%2Fwww.
-                        tinkercad.com%2Fdashboard&sharecode=M42t2DZI6_DUMV28GtGFCMb2ttnn7scm-EUyXX9Qpwo"
-                        target="-blank" rel="noopener">
-                        Project Details ↗
+                    <a class="project-link"
+                       href="https://www.tinkercad.com/things/5Vj3kfo5iZP-smart-garbage-collection/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=M42t2DZI6_DUMV28GtGFCMb2ttnn7scm-EUyXX9Qpwo"
+                       target="_blank" rel="noopener">
+                        Project Details <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </article>
@@ -850,11 +1094,21 @@ footer {
 
             <article class="project-card">
 
-                <img src="om%20shree%20sai%20service.jpg.png"
-                     alt="Om Shree Sai Service website">
+                <div class="project-image">
+                    <img src="om%20shree%20sai%20service.jpg.png"
+                         alt="Om Shree Sai Service website"
+                         loading="lazy">
+                    <div class="image-fallback">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span>Om Shree Sai Service Website</span>
+                    </div>
+                </div>
 
                 <div class="project-content">
-                    <h3>Om Shree Sai Service</h3>
+                    <h3>
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        Om Shree Sai Service
+                    </h3>
 
                     <p>
                         A responsive informational business website featuring
@@ -872,7 +1126,7 @@ footer {
                     <a class="project-link"
                        href="https://kaverikilje3008-afk.github.io/Om-Shree-Sai-Service/"
                        target="_blank" rel="noopener">
-                        Visit Live Website ↗
+                        Visit Live Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </article>
@@ -886,7 +1140,11 @@ footer {
 <section id="experience">
     <div class="container reveal">
 
-        <h2 class="section-title">My <span>Experience</span></h2>
+        <h2 class="section-title">
+            <i class="fa-solid fa-briefcase"></i>
+            My <span>Experience</span>
+        </h2>
+
         <p class="section-subtitle">
             Internships and practical learning
         </p>
@@ -920,21 +1178,21 @@ footer {
 <section id="education">
     <div class="container reveal">
 
-        <h2 class="section-title">My <span>Education</span></h2>
+        <h2 class="section-title">
+            <i class="fa-solid fa-graduation-cap"></i>
+            My <span>Education</span>
+        </h2>
+
         <p class="section-subtitle">
             My academic journey and qualifications
         </p>
 
         <div class="education-timeline">
 
-            <!-- BSC IT -->
-
             <div class="education-item">
-
                 <div class="education-year">2023 – Present</div>
 
                 <div class="education-card">
-
                     <span class="education-status">
                         Currently Pursuing
                     </span>
@@ -952,23 +1210,16 @@ footer {
                         Technology with an interest in programming,
                         data analytics and web development.
                     </p>
-
                 </div>
             </div>
 
-            <!-- HSC -->
-
             <div class="education-item">
-
                 <div class="education-year">2021 – 2023</div>
 
                 <div class="education-card">
-
                     <span class="education-status">Completed</span>
 
-                    <h3>
-                        Higher Secondary Certificate (HSC)
-                    </h3>
+                    <h3>Higher Secondary Certificate (HSC)</h3>
 
                     <h4>
                         Sharadashram Vidyamandir (Tech), Dadar
@@ -977,23 +1228,16 @@ footer {
                     <p>
                         Completed higher secondary education.
                     </p>
-
                 </div>
             </div>
 
-            <!-- SSC -->
-
             <div class="education-item">
-
                 <div class="education-year">2020 – 2021</div>
 
                 <div class="education-card">
-
                     <span class="education-status">Completed</span>
 
-                    <h3>
-                        Secondary School Certificate (SSC)
-                    </h3>
+                    <h3>Secondary School Certificate (SSC)</h3>
 
                     <h4>
                         Holy Cross Convent High School, Thane
@@ -1002,7 +1246,6 @@ footer {
                     <p>
                         Completed secondary school education.
                     </p>
-
                 </div>
             </div>
 
@@ -1018,6 +1261,7 @@ footer {
         <div class="contact-box">
 
             <h2 class="section-title">
+                <i class="fa-solid fa-comments"></i>
                 Let's <span>Connect</span>
             </h2>
 
@@ -1033,6 +1277,7 @@ footer {
 
                 <a class="btn btn-primary"
                    href="mailto:YOUR_EMAIL@example.com">
+                    <i class="fa-solid fa-envelope"></i>
                     Email Me
                 </a>
 
@@ -1041,6 +1286,7 @@ footer {
                 <a class="btn btn-outline"
                    href="https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE/"
                    target="_blank" rel="noopener">
+                    <i class="fa-brands fa-linkedin"></i>
                     LinkedIn Profile
                 </a>
 
@@ -1055,7 +1301,9 @@ footer {
 <footer>
     <div class="container">
         <p>
-            © 2025 Kaveri Kilje. Designed with passion and creativity.
+            © 2025 Kaveri Kilje. Designed with
+            <i class="fa-solid fa-heart"></i>
+            passion and creativity.
         </p>
     </div>
 </footer>
@@ -1070,23 +1318,50 @@ const menuButton = document.getElementById("menuButton");
 const navLinks = document.getElementById("navLinks");
 
 menuButton.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+
+    const isOpen = navLinks.classList.toggle("active");
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+
+    menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+    menuButton.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+
 });
 
 document.querySelectorAll(".nav-links a").forEach(link => {
+
     link.addEventListener("click", () => {
+
         navLinks.classList.remove("active");
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        menuButton.innerHTML =
+            '<i class="fa-solid fa-bars"></i>';
+
     });
+
 });
 
-// SCROLL ANIMATION
+
+// SCROLL REVEAL ANIMATION
 
 const observer = new IntersectionObserver((entries) => {
 
     entries.forEach(entry => {
 
         if (entry.isIntersecting) {
+
             entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
         }
 
     });
@@ -1098,6 +1373,38 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".reveal").forEach(element => {
     observer.observe(element);
 });
+
+
+// PROJECT IMAGE FALLBACK
+
+document.querySelectorAll(".project-image").forEach(wrapper => {
+
+    const img = wrapper.querySelector("img");
+    const fallback = wrapper.querySelector(".image-fallback");
+
+    function showFallback() {
+        img.style.display = "none";
+        fallback.style.display = "flex";
+    }
+
+    img.addEventListener("error", showFallback);
+
+    if (img.complete && img.naturalWidth === 0) {
+        showFallback();
+    }
+
+});
+
+
+// REDUCED MOTION SUPPORT
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+    document.querySelectorAll(".reveal").forEach(element => {
+        element.classList.add("show");
+    });
+
+}
 
 </script>
 
