@@ -231,7 +231,7 @@ nav {
     align-items: center;
 }
 
-/* CIRCULAR PROFILE PHOTO */
+/* PROFILE PHOTO */
 
 .profile-image {
     width: min(340px, 75vw);
@@ -256,7 +256,7 @@ nav {
     50% { transform: translateY(-13px); }
 }
 
-/* ABOUT ME ANIMATION */
+/* ABOUT */
 
 .about-box {
     position: relative;
@@ -289,9 +289,7 @@ nav {
     box-shadow: 0 15px 40px rgba(66,245,161,0.13);
 }
 
-.about-box:hover::before {
-    transform: scale(1.7);
-}
+.about-box:hover::before { transform: scale(1.7); }
 
 .about-box p {
     position: relative;
@@ -305,17 +303,9 @@ nav {
     animation: aboutText 0.8s ease forwards;
 }
 
-.about-box.show-about p:nth-child(1) {
-    animation-delay: 0.15s;
-}
-
-.about-box.show-about p:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.about-box.show-about p:nth-child(3) {
-    animation-delay: 0.65s;
-}
+.about-box.show-about p:nth-child(1) { animation-delay: 0.15s; }
+.about-box.show-about p:nth-child(2) { animation-delay: 0.4s; }
+.about-box.show-about p:nth-child(3) { animation-delay: 0.65s; }
 
 @keyframes aboutText {
     to {
@@ -377,8 +367,6 @@ nav {
     box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
-/* PROJECT IMAGE FIX: SHOW FULL IMAGE */
-
 .project-card img {
     width: 100%;
     height: 240px;
@@ -390,8 +378,12 @@ nav {
     transition: transform 0.4s ease;
 }
 
-.project-card:hover img {
-    transform: scale(1.03);
+.project-card:hover img { transform: scale(1.03); }
+
+.project-card img.project-photo {
+    height: 240px;
+    object-fit: cover;
+    padding: 0;
 }
 
 .project-content { padding: 24px; }
@@ -538,7 +530,7 @@ nav {
     font-weight: 600;
 }
 
-/* RESUME - BUTTONS ONLY */
+/* RESUME */
 
 .resume-box {
     text-align: center;
@@ -620,7 +612,7 @@ footer {
 
 /* RESPONSIVE */
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
     .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -632,11 +624,8 @@ footer {
     }
 
     .hero-buttons { justify-content: center; }
-
     .profile-wrap { grid-row: 1; }
-
     .profile-image { width: 230px; }
-
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
 
     .nav-links {
@@ -652,27 +641,20 @@ footer {
     }
 
     .nav-links.active { display: flex; }
-
     .menu-button { display: block; }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
     section { padding: 65px 0; }
-
     .projects-grid { grid-template-columns: 1fr; }
-
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
-
     .about-box { padding: 23px; }
-
     .project-card img { height: 200px; }
 }
 </style>
 </head>
 
 <body>
-
-<!-- NAVIGATION -->
 
 <header>
     <div class="container">
@@ -696,14 +678,10 @@ footer {
     </div>
 </header>
 
-<!-- HOME -->
-
 <section class="hero" id="home">
     <div class="container hero-grid">
-
         <div class="hero-content reveal">
             <span class="tag">✨ Welcome to my portfolio</span>
-
             <h1>Hi, I'm <span>Kaveri Kilje</span></h1>
 
             <h2>
@@ -719,31 +697,21 @@ footer {
             </p>
 
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    🚀 Explore My Projects
-                </a>
-
-                <a href="#contact" class="btn btn-outline">
-                    ✉ Contact Me
-                </a>
+                <a href="#projects" class="btn btn-primary">🚀 Explore My Projects</a>
+                <a href="#contact" class="btn btn-outline">✉ Contact Me</a>
             </div>
         </div>
 
         <div class="profile-wrap reveal">
             <div class="profile-image">
-                <img src="portfolio profile.jpeg"
-                     alt="Kaveri Kilje profile photo">
+                <img src="portfolio profile.jpeg" alt="Kaveri Kilje profile photo">
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- ABOUT -->
-
 <section id="about">
     <div class="container reveal">
-
         <h2 class="section-title">About <span>Me</span></h2>
         <p class="section-subtitle">A little introduction about me</p>
 
@@ -752,33 +720,26 @@ footer {
                 Hello! I am Kaveri Kilje, a technology enthusiast
                 interested in data analytics, programming and web development.
             </p>
-
             <p>
                 I have worked on practical projects involving Python,
                 Pandas, Streamlit, HTML, CSS and JavaScript. These projects
                 have helped me improve my technical knowledge, problem-solving
                 abilities and understanding of real-world applications.
             </p>
-
             <p>
                 My goal is to continue learning, gain practical experience
                 and build a successful career in the technology field.
             </p>
         </div>
-
     </div>
 </section>
 
-<!-- SKILLS -->
-
 <section id="skills">
     <div class="container reveal">
-
         <h2 class="section-title">My <span>Skills</span></h2>
         <p class="section-subtitle">Technologies and tools I work with</p>
 
         <div class="skills-grid">
-
             <div class="skill"><h3>🐍 Python</h3><p>Programming</p></div>
             <div class="skill"><h3>🗄️ SQL</h3><p>Database Basics</p></div>
             <div class="skill"><h3>🐼 Pandas</h3><p>Data Analysis</p></div>
@@ -791,45 +752,30 @@ footer {
             <div class="skill"><h3>💡 UI/UX Design</h3><p>User Interface Design</p></div>
             <div class="skill"><h3>🚀 Go Programming</h3><p>Programming</p></div>
             <div class="skill"><h3>☕ Core Java</h3><p>Programming</p></div>
-
         </div>
     </div>
 </section>
 
-<!-- PROJECTS -->
-
 <section id="projects">
     <div class="container reveal">
-
         <h2 class="section-title">My <span>Projects</span></h2>
-        <p class="section-subtitle">
-            Some of the practical projects I have worked on
-        </p>
+        <p class="section-subtitle">Some of the practical projects I have worked on</p>
 
         <div class="projects-grid">
 
-            <!-- PROJECT 1: STUDENT TRANSPORTATION -->
-
             <article class="project-card">
-                <img src="Dashboard.png"
-                     alt="Student Transportation Dashboard">
-
+                <img src="Dashboard.png" alt="Student Transportation Dashboard">
                 <div class="project-content">
                     <h3>🚌 Student Transportation Preference Analysis</h3>
-
                     <p>
                         An interactive dashboard that analyzes students'
                         transport preferences, travel distance, journey time,
                         travel cost, safety and commuting delays.
                     </p>
-
                     <div class="project-tags">
-                        <span>Python</span>
-                        <span>Pandas</span>
-                        <span>Streamlit</span>
-                        <span>Data Visualization</span>
+                        <span>Python</span><span>Pandas</span>
+                        <span>Streamlit</span><span>Data Visualization</span>
                     </div>
-
                     <a class="project-link"
                        href="https://student-transport-preference-analysis-a4ie2gwqkpne3l9hnibjlk.streamlit.app/"
                        target="_blank" rel="noopener noreferrer">
@@ -838,28 +784,19 @@ footer {
                 </div>
             </article>
 
-            <!-- PROJECT 2: DP DIAGNOSTICS -->
-
             <article class="project-card">
-                <img src="DP daignostic.png"
-                     alt="D P Diagnostics project">
-
+                <img src="DP daignostic.png" alt="D P Diagnostics project">
                 <div class="project-content">
                     <h3>🏥 D P Diagnostics</h3>
-
                     <p>
                         A website project designed to present diagnostic
                         services and provide visitors with clear information
                         about the organization.
                     </p>
-
                     <div class="project-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Web Design</span>
+                        <span>HTML</span><span>CSS</span>
+                        <span>JavaScript</span><span>Web Design</span>
                     </div>
-
                     <a class="project-link"
                        href="https://kaverikilje3020-hub.github.io/D-P-Diagnostics/"
                        target="_blank" rel="noopener noreferrer">
@@ -868,27 +805,19 @@ footer {
                 </div>
             </article>
 
-            <!-- PROJECT 3: SMART GARBAGE BIN -->
-
             <article class="project-card">
-                <img src="smart-garbage-bin.png"
-                     alt="Smart Garbage Bin project">
-
+                <img src="smart-garbage-bin.png" alt="Smart Garbage Bin project">
                 <div class="project-content">
                     <h3>♻️ Smart Garbage Bin</h3>
-
                     <p>
                         A smart waste-management project focused on improving
                         waste collection and supporting cleaner surroundings
                         through technology.
                     </p>
-
                     <div class="project-tags">
-                        <span>Smart Technology</span>
-                        <span>Innovation</span>
+                        <span>Smart Technology</span><span>Innovation</span>
                         <span>Project Development</span>
                     </div>
-
                     <a class="project-link"
                        href="https://www.tinkercad.com/things/5Vj3kfo5iZP-smart-garbage-collection/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=M42t2DZI6_DUMV28GtGFCMb2ttnn7scm-EUyXX9Qpwo"
                        target="_blank" rel="noopener noreferrer">
@@ -897,28 +826,20 @@ footer {
                 </div>
             </article>
 
-            <!-- PROJECT 4: OM SHREE SAI SERVICE -->
-
             <article class="project-card">
                 <img src="om%20shree%20sai%20service.jpg.png"
                      alt="Om Shree Sai Service website">
-
                 <div class="project-content">
                     <h3>🌐 Om Shree Sai Service</h3>
-
                     <p>
                         A responsive informational business website featuring
                         services, gallery and contact information with a
                         simple and user-friendly design.
                     </p>
-
                     <div class="project-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>GitHub Pages</span>
+                        <span>HTML</span><span>CSS</span>
+                        <span>JavaScript</span><span>GitHub Pages</span>
                     </div>
-
                     <a class="project-link"
                        href="https://kaverikilje3008-afk.github.io/Om-Shree-Sai-Service/"
                        target="_blank" rel="noopener noreferrer">
@@ -927,29 +848,21 @@ footer {
                 </div>
             </article>
 
-            <!-- PROJECT 5: PERSONAL PORTFOLIO -->
-
             <article class="project-card">
                 <img src="portfolio-screenshot.png"
                      alt="Personal portfolio website"
                      onerror="this.style.display='none'">
-
                 <div class="project-content">
                     <h3>💻 Personal Portfolio Website</h3>
-
                     <p>
                         A professional portfolio website showcasing my
                         technical skills, education, internship experience
                         and projects in one place.
                     </p>
-
                     <div class="project-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Responsive Design</span>
+                        <span>HTML</span><span>CSS</span>
+                        <span>JavaScript</span><span>Responsive Design</span>
                     </div>
-
                     <a class="project-link"
                        href="https://kaverikilje3008-afk.github.io/portfolio/"
                        target="_blank" rel="noopener noreferrer">
@@ -958,70 +871,104 @@ footer {
                 </div>
             </article>
 
+            <article class="project-card">
+                <img class="project-photo"
+                     src=
+                     alt="Task list on a notebook">
+                <div class="project-content">
+                    <h3>✅ To-do List Web</h3>
+                    <p>
+                        A task manager for adding, completing, searching and
+                        filtering tasks. Tasks are saved in the browser using
+                        local storage.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span>
+                        <span>JavaScript</span><span>Local Storage</span>
+                    </div>
+                    <a class="project-link"
+                       href="https://kaverikilje3008-afk.github.io/task-to-do/"
+                       target="_blank" rel="noopener noreferrer">
+                        Open To-do List ↗
+                    </a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img class="project-photo"
+                     src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85"
+                     alt="Explore Shop storefront preview">
+                <div class="project-content">
+                    <h3>🛍️ Explore Shop</h3>
+                    <p>
+                        A responsive product catalog with product photos,
+                        Indian rupee prices, search, category and price filters,
+                        ratings and sorting.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span>
+                        <span>JavaScript</span><span>Filtering & Sorting</span>
+                    </div>
+                    <a class="project-link"
+                       href="https://kaverikilje3008-afk.github.io/exploreshop/"
+                       target="_blank" rel="noopener noreferrer">
+                        Explore the Shop ↗
+                    </a>
+                </div>
+            </article>
+
         </div>
     </div>
 </section>
-
-<!-- EXPERIENCE -->
 
 <section id="experience">
     <div class="container reveal">
-
         <h2 class="section-title">My <span>Experience</span></h2>
-        <p class="section-subtitle">
-            Internships and practical learning
-        </p>
-
-        <div class="timeline">
-
+        <p class="section-subtitle">Internships and practical learning</p>
+        
             <div class="timeline-card">
                 <h3>📊 Data Analytics Intern — InAmigo AI</h3>
-                <p>2 Months Internship</p>
+                <p>Completed · 2-month internship</p>
                 <p>
-                    Gained exposure to data analytics concepts,
-                    practical tasks and working with data.
+                    Gained practical exposure to data analytics concepts,
+                    working with data and related workflows.
+                </p>
+            </div>
+
+        <div class="timeline">
+            <div class="timeline-card">
+                <h3>💻 Intern — Apex Planet</h3>
+                <p>Remote · Ongoing</p>
+                <p>
+                    Currently gaining practical experience through remote
+                    internship work and project-based learning.
                 </p>
             </div>
 
             <div class="timeline-card">
-                <h3>💼 Intern — Cubo Academy</h3>
-                <p>Ongoing Internship</p>
+                <h3>🎓 Intern — Cubo Academy</h3>
+                <p>Ongoing</p>
                 <p>
-                    Developing practical knowledge and improving
-                    professional and technical skills.
+                    Continuing to develop professional and technical skills
+                    through internship activities and practical learning.
                 </p>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- EDUCATION -->
-
 <section id="education">
     <div class="container reveal">
-
         <h2 class="section-title">My <span>Education</span></h2>
-        <p class="section-subtitle">
-            My academic journey and qualifications
-        </p>
-        
+        <p class="section-subtitle">My academic journey and qualifications</p>
+
         <div class="education-timeline">
-
-            <!-- BSC IT -->
-
             <div class="education-item">
                 <div class="education-year">2023 – Present</div>
-
                 <div class="education-card">
                     <span class="education-status">Currently Pursuing</span>
-
-                    <h3>
-                        Bachelor of Science in Information Technology (B.Sc. IT)
-                    </h3>
-
+                    <h3>Bachelor of Science in Information Technology (B.Sc. IT)</h3>
                     <h4>Kirti M. Doongursee College, Dadar</h4>
-
                     <p>
                         Pursuing an undergraduate degree in Information
                         Technology with an interest in programming,
@@ -1030,63 +977,42 @@ footer {
                 </div>
             </div>
 
-            <!-- HSC -->
-
             <div class="education-item">
                 <div class="education-year">2021 – 2023</div>
-
                 <div class="education-card">
                     <span class="education-status">Completed</span>
-
                     <h3>Higher Secondary Certificate (HSC)</h3>
-
                     <h4>Sharadashram Vidyamandir (Tech), Dadar</h4>
-
                     <p>Completed higher secondary education.</p>
                 </div>
             </div>
 
-            <!-- SSC -->
-
             <div class="education-item">
                 <div class="education-year">2020 – 2021</div>
-
                 <div class="education-card">
                     <span class="education-status">Completed</span>
-
                     <h3>Secondary School Certificate (SSC)</h3>
-
                     <h4>Holy Cross Convent High School, Thane</h4>
-
                     <p>Completed secondary school education.</p>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- RESUME -->
-
 <section id="resume">
     <div class="container reveal">
-
         <div class="resume-box">
-            <h2 class="section-title">
-                My <span>Resume</span>
-            </h2>
-
+            <h2 class="section-title">My <span>Resume</span></h2>
             <p>
                 Explore my resume to learn more about my education,
                 technical skills, internship experience and projects.
             </p>
 
             <div class="resume-buttons">
-
                 <a class="btn btn-primary"
                    href="kaveri_kilje_resume.jpeg"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                   target="_blank" rel="noopener noreferrer">
                     👁️ View Resume
                 </a>
 
@@ -1095,24 +1021,15 @@ footer {
                    download="kaveri_kilje_resume.jpeg">
                     ⬇️ Download Resume
                 </a>
-
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- CONTACT -->
-
 <section id="contact">
     <div class="container reveal">
-
         <div class="contact-box">
-
-            <h2 class="section-title">
-                Let's <span>Connect</span>
-            </h2>
-
+            <h2 class="section-title">Let's <span>Connect</span></h2>
             <p>
                 I am open to learning opportunities, internships,
                 collaborations and connecting with professionals.
@@ -1120,15 +1037,10 @@ footer {
             </p>
 
             <div class="contact-buttons">
-
-                <!-- REPLACE WITH YOUR ACTUAL EMAIL -->
-
                 <a class="btn btn-primary"
                    href="mailto:kaverikilje3008@gmail.com">
                     ✉️ Email Me
                 </a>
-
-                <!-- REPLACE WITH YOUR ACTUAL LINKEDIN PROFILE -->
 
                 <a class="btn btn-outline"
                    href="https://www.linkedin.com/in/kaveri-kilje-1ba902250?utm_source=share_via&utm_content=profile&utm_medium=member_android"
@@ -1136,42 +1048,28 @@ footer {
                     💼 LinkedIn Profile
                 </a>
 
-                <!-- GITHUB -->
-
                 <a class="btn btn-outline"
                    href="https://github.com/kaverikilje3008-afk"
                    target="_blank" rel="noopener noreferrer">
                     🐙 GitHub Profile
                 </a>
-
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
     <div class="container">
-        <p>
-            © 2025 Kaveri Kilje. Designed with passion and creativity.
-        </p>
+        <p>© 2025 Kaveri Kilje. Designed with passion and creativity.</p>
     </div>
 </footer>
 
-<!-- JAVASCRIPT -->
-
 <script>
-
-/* MOBILE NAVIGATION */
-
 const menuButton = document.getElementById("menuButton");
 const navLinks = document.getElementById("navLinks");
 
 menuButton.addEventListener("click", () => {
     navLinks.classList.toggle("active");
-
     menuButton.textContent =
         navLinks.classList.contains("active") ? "✕" : "☰";
 });
@@ -1183,66 +1081,44 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     });
 });
 
-/* SCROLL REVEAL ANIMATION */
-
-const observer = new IntersectionObserver((entries) => {
-
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
             observer.unobserve(entry.target);
         }
-
     });
-
-}, {
-    threshold: 0.12
-});
+}, { threshold: 0.12 });
 
 document.querySelectorAll(".reveal").forEach(element => {
     observer.observe(element);
 });
 
-/* ABOUT ME TEXT ANIMATION */
-
 const aboutBox = document.querySelector(".about-box");
 
-const aboutObserver = new IntersectionObserver((entries) => {
+const aboutObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             aboutBox.classList.add("show-about");
             aboutObserver.unobserve(aboutBox);
         }
     });
-}, {
-    threshold: 0.25
-});
+}, { threshold: 0.25 });
 
 aboutObserver.observe(aboutBox);
 
-/* TYPING ANIMATION */
-
 const roleElement = document.getElementById("typingRole");
-
-const roles = [
-    "Web Developer",
-    "Data Analytics Enthusiast"
-];
+const roles = ["Web Developer", "Data Analytics Enthusiast"];
 
 let roleIndex = 0;
 let charIndex = 0;
 let deleting = false;
 
 function typeRole() {
-
     const currentRole = roles[roleIndex];
 
     if (!deleting) {
-
-        roleElement.textContent =
-            currentRole.substring(0, charIndex + 1);
-
+        roleElement.textContent = currentRole.substring(0, charIndex + 1);
         charIndex++;
 
         if (charIndex === currentRole.length) {
@@ -1250,26 +1126,20 @@ function typeRole() {
             setTimeout(typeRole, 1600);
             return;
         }
-
     } else {
-
-        roleElement.textContent =
-            currentRole.substring(0, charIndex - 1);
-
+        roleElement.textContent = currentRole.substring(0, charIndex - 1);
         charIndex--;
 
         if (charIndex === 0) {
             deleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
         }
-
     }
 
     setTimeout(typeRole, deleting ? 45 : 95);
 }
 
 typeRole();
-
 </script>
 
 </body>
