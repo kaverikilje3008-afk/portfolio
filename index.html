@@ -48,7 +48,7 @@ a {
 
 section {
     padding: 90px 0;
-    scroll-margin-top: 85px;
+    scroll-margin-top: 120px;
 }
 
 .section-title {
@@ -64,8 +64,6 @@ section {
     margin-bottom: 38px;
 }
 
-/* BACKGROUND */
-
 body::before {
     content: "";
     position: fixed;
@@ -79,8 +77,6 @@ body::before {
     z-index: -1;
     pointer-events: none;
 }
-
-/* NAVIGATION */
 
 header {
     position: sticky;
@@ -132,8 +128,6 @@ nav {
     cursor: pointer;
     font-size: 20px;
 }
-
-/* HERO */
 
 .hero {
     min-height: 88vh;
@@ -231,8 +225,6 @@ nav {
     align-items: center;
 }
 
-/* PROFILE PHOTO */
-
 .profile-image {
     width: min(340px, 75vw);
     aspect-ratio: 1;
@@ -255,8 +247,6 @@ nav {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-13px); }
 }
-
-/* ABOUT */
 
 .about-box {
     position: relative;
@@ -314,8 +304,6 @@ nav {
     }
 }
 
-/* SKILLS */
-
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -344,8 +332,6 @@ nav {
     color: var(--muted);
     margin-top: 6px;
 }
-
-/* PROJECTS */
 
 .projects-grid {
     display: grid;
@@ -423,8 +409,6 @@ nav {
 
 .project-link:hover { text-decoration: underline; }
 
-/* EXPERIENCE */
-
 .timeline {
     border-left: 2px solid var(--green);
     padding-left: 28px;
@@ -458,8 +442,6 @@ nav {
     color: var(--muted);
     margin-top: 6px;
 }
-
-/* EDUCATION */
 
 .education-timeline {
     max-width: 850px;
@@ -530,8 +512,6 @@ nav {
     font-weight: 600;
 }
 
-/* RESUME */
-
 .resume-box {
     text-align: center;
     background: linear-gradient(135deg, #102b32, #101f32);
@@ -552,8 +532,6 @@ nav {
     flex-wrap: wrap;
     gap: 14px;
 }
-
-/* CONTACT */
 
 .contact-box {
     text-align: center;
@@ -576,8 +554,6 @@ nav {
     gap: 14px;
 }
 
-/* FOOTER */
-
 footer {
     border-top: 1px solid var(--border);
     padding: 25px 0;
@@ -585,8 +561,6 @@ footer {
     color: var(--muted);
     font-size: 13px;
 }
-
-/* SCROLL ANIMATION */
 
 .reveal {
     opacity: 0;
@@ -599,8 +573,6 @@ footer {
     transform: translateY(0);
 }
 
-/* ACCESSIBILITY */
-
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -609,8 +581,6 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 800px) {
     .hero-grid {
@@ -827,7 +797,7 @@ footer {
             </article>
 
             <article class="project-card">
-                <img src="om%20shree%20sai%20service.jpg.png"
+                <img src="om shree sai service.jpg.png"
                      alt="Om Shree Sai Service website">
                 <div class="project-content">
                     <h3>🌐 Om Shree Sai Service</h3>
@@ -841,7 +811,7 @@ footer {
                         <span>JavaScript</span><span>GitHub Pages</span>
                     </div>
                     <a class="project-link"
-                       href="https://kaverikilje3008-afk.github.io/Om-Shree-Sai-Service/"
+                       href="https://kaverikilje3008-afk.github.io/Om-Shree-Sai-Servic"
                        target="_blank" rel="noopener noreferrer">
                         Visit Live Website ↗
                     </a>
@@ -853,7 +823,7 @@ footer {
                      src="task-todo.png"
                      alt="Task list on a notebook">
                 <div class="project-content">
-                    <h3>✅ To-do List Web</h3>
+                    <h3>✅ To-do List App</h3>
                     <p>
                         A task manager for adding, completing, searching and
                         filtering tasks. Tasks are saved in the browser using
@@ -894,7 +864,7 @@ footer {
                 </div>
             </article>
 
-              <article class="project-card">
+            <article class="project-card">
                 <img src="portfolio-screenshot.png"
                      alt="Personal portfolio website"
                      onerror="this.style.display='none'">
@@ -917,6 +887,7 @@ footer {
                 </div>
             </article>
 
+
         </div>
     </div>
 </section>
@@ -926,22 +897,22 @@ footer {
         <h2 class="section-title">My <span>Experience</span></h2>
         <p class="section-subtitle">Internships and practical learning</p>
 
-            <div class="timeline-card">
-                <h3>📊 Data Analytics Intern — InAmigo AI</h3>
-                <p>Completed · 2-month internship</p>
-                <p>
-                    Gained practical exposure to data analytics concepts,
-                    working with data and related workflows.
-                </p>
-            </div>
-
-             <div class="timeline">
+        <div class="timeline">
             <div class="timeline-card">
                 <h3>💻 Intern — Apex Planet</h3>
                 <p>Remote · Ongoing</p>
                 <p>
                     Currently gaining practical experience through remote
                     internship work and project-based learning.
+                </p>
+            </div>
+
+            <div class="timeline-card">
+                <h3>📊 Data Analytics Intern — InAmigo AI</h3>
+                <p>Completed · 2-month internship</p>
+                <p>
+                    Gained practical exposure to data analytics concepts,
+                    working with data and related workflows.
                 </p>
             </div>
 
